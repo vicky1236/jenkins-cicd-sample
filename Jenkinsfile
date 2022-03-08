@@ -27,9 +27,9 @@ node {
 
  stage('Push to DockerHub') {
    withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerPWD')]) {
-     sh "docker login -u bharathbggowda18@gmail.com -p ${dockerPWD}"
+     sh "docker login -u bharathbg -p ${dockerPWD}"
    }
-   sh "docker push medchiheb/sample-java-app"
+   sh "docker push bharathbg/sample-java-app"
    sh "docker logout"
 
  }

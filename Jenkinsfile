@@ -6,13 +6,13 @@ node {
 
         properties([
                 buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '10')),
-                [$class: 'GithubProjectProperty', displayName: '', projectUrlStr: 'https://github.com/medmedchiheb/jenkins-cicd-sample'],
+                [$class: 'GithubProjectProperty', displayName: '', projectUrlStr: 'https://github.com/vicky1236/jenkins-cicd-sample'],
                 pipelineTriggers([[$class: 'GitHubPushTrigger']])
             ])
  }
 
  stage('SCM checkout') {
-   git 'https://github.com/medmedchiheb/devops-ci-simple'
+   git 'https://github.com/vicky1236/jenkins-cicd-sample'
  }
 
  stage('Compile ') {

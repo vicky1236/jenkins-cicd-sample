@@ -15,7 +15,7 @@ public class SimpleAppApplication {
 	
 	@GetMapping("/")
 	public String start() {
-		return "welcome to  test app!";
+		return "welcome to locus app";
 	}
 
 }

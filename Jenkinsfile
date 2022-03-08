@@ -21,7 +21,7 @@ node {
  }
 
  stage('Build Docker image ') {
-  sh "docker build -t bharathbg/sample-java-app ."
+  sh "docker build -t bharathbg/sample-java-app: ${BUILD_NUMBER}."
 
  }
 
@@ -29,7 +29,7 @@ node {
    withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerPWD')]) {
      sh "docker login -u bharathbg -p ${dockerPWD}"
    }
-   sh "docker push bharathbg/sample-java-app"
+   sh "docker push bharathbg/sample-java-app:${BUILD_NUMBER}"
    sh "docker logout"
 
  }

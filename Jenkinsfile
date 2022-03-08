@@ -27,19 +27,13 @@ node {
 
  stage('Push to DockerHub') {
    withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerPWD')]) {
-     sh "docker login -u medchiheb -p ${dockerPWD}"
+     sh "docker login -u bharathbggowda18@gmail.com -p ${dockerPWD}"
    }
    sh "docker push medchiheb/sample-java-app"
    sh "docker logout"
 
  }
 
- stage('Deploy') {
-      sshagent(['dev-aws']) {
-        def runCMD = 'docker run -d --name sample_app -p 8080:8088 medchiheb/sample-java-app'
-        sh "ssh -o StrictHostKeyChecking=no ec2-user@ec2-54-191-122-228.us-west-2.compute.amazonaws.com ${runCMD}"
-      }
 
-  }
 
 }

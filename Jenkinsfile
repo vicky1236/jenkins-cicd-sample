@@ -21,7 +21,7 @@ node {
  }
 
  stage('Build Docker image ') {
-  sh "docker build -t medchiheb/sample-java-app ."
+  sh "docker build -t bharathbg/sample-java-app ."
 
  }
 
